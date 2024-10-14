@@ -15,7 +15,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t  temperature_Converter .
+          docker build -t  temperature_converter .
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
@@ -25,5 +25,5 @@ jobs:
           
       - name: Push Docker image
         run: |
-          docker tag  temperature_Converter ${{ secrets.DOCKER_USERNAME }}/temperature_Converter:latest
-          docker push ${{ secrets.DOCKER_USERNAME }}/temperature_Converter:latest
+          docker tag  temperature_converter ${{ secrets.DOCKER_USERNAME }}/temperature_converter:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/temperature_converter:latest
