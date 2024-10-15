@@ -3,14 +3,14 @@
 on:
   push:
     branches:
-    - api_feature
+      - api_feature
 
 jobs:
   pull-request:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: pull-request
-    uses: diillson/auto-pull-request@v1.0.1
-    with:
-        destination_branch: "master"
+      - uses: actions/checkout@v3
+      - name: Pull Request
+        uses: diillson/auto-pull-request@v1.0.1
+        with:
+          destination_branch: "master"
