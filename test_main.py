@@ -1,22 +1,59 @@
 import pytest
-from main import TemperatureConverter
+from fastapi.testclient import TestClient
+from main import app
+
+client = TestClient(app)
 
 def test_celsius_to_fahrenheit():
-    assert TemperatureConverter.celsius_to_fahrenheit(0) == pytest.approx(32)
-    assert TemperatureConverter.celsius_to_fahrenheit(100) == pytest.approx(212)
+    response = client.get("/celsius-to-fahrenheit?value=0")
+    assert response.status_code == 200
+    assert response.json()["output"] == pytest.approx(32)
+
+    response = client.get("/celsius-to-fahrenheit?value=100")
+    assert response.status_code == 200
+    assert response.json()["output"] == pytest.approx(212)
 
 def test_fahrenheit_to_celsius():
-    assert TemperatureConverter.fahrenheit_to_celsius(32) == pytest.approx(0)
-    assert TemperatureConverter.fahrenheit_to_celsius(212) == pytest.approx(100)
+    response = client.get("/fahrenheit-to-celsius?value=32")
+    assert response.status_code == 200
+    assert response.json()["output"] == pytest.approx(0)
+
+    response = client.get("/fahrenheit-to-celsius?value=212")
+    assert response.status_code == 200
+    assert response.json()["output"] == pytest.approx(100)
 
 def test_celsius_to_kelvin():
-    assert TemperatureConverter.celsius_to_kelvin(0) == pytest.approx(273.15)
-    assert TemperatureConverter.celsius_to_kelvin(100) == pytest.approx(373.15)
+    response = client.get("/celsius-to-kelvin?value=0")
+    assert response.status_code == 200
+    assert response.json()["output"] == pytest.approx(273.15)
+
+    response = client.get("/celsius-to-kelvin?value=100")
+    assert response.status_code == 200
+    assert response.json()["output"] == pytest.approx(373.15)
+
+def test_kelvin_to_celsius():
+    response = client.get("/kelvin-to-celsius?value=273.15")
+    assert response.status_code == 200
+    assert response.json()["output"] == pytest.approx(0)
+
+    response = client.get("/kelvin-to-celsius?value=373.15")
+    assert response.status_code == 200
+    assert response.json()["output"] == pytest.approx(100)
 
 def test_fahrenheit_to_kelvin():
-    assert TemperatureConverter.fahrenheit_to_kelvin(32) == pytest.approx(273.15)
-    assert TemperatureConverter.fahrenheit_to_kelvin(212) == pytest.approx(373.15)
+    response = client.get("/fahrenheit-to-kelvin?value=32")
+    assert response.status_code == 200
+    assert response.json()["output"] == pytest.approx(273.15)
+
+    response = client.get("/fahrenheit-to-kelvin?value=212")
+    assert response.status_code == 200
+    assert response.json()["output"] == pytest.approx(373.15)
 
 def test_kelvin_to_fahrenheit():
-    assert TemperatureConverter.kelvin_to_fahrenheit(273.15) == pytest.approx(32)
-    assert TemperatureConverter.kelvin_to_fahrenheit(373.15) == pytest.approx(212)
+    response = client.get("/kelvin-to-fahrenheit?value=273.15")
+    assert response.status_code == 200
+    assert response.json()["output"] == pytest.approx(32)
+
+    response = client.get("/kelvin-to-fahrenheit?value=373.15")
+    assert response.status_code == 200
+    assert response.json()["output"] == pytest.approx(212)
