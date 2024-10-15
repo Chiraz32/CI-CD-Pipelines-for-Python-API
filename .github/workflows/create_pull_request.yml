@@ -1,3 +1,10 @@
+name: Create Pull Request
+
+on:
+  push:
+    branches:
+      - api_feature  # Trigger on pushes to api_feature branch
+
 jobs:
   create_pr:
     runs-on: ubuntu-latest
