@@ -1,0 +1,24 @@
+name: Create Pull Request
+
+on:
+  push:
+    branches:
+      - api_feature  # Trigger on pushes to feature_api branch
+
+jobs:
+  create_pr:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          title: "Automated Pull Request from api_feature to master"
+          body: "This pull request was created automatically by a GitHub Action."
+          head: api_feature  # Source branch
+          base: master       # Target branch
+          draft: false       # Set to true if you want to create a draft pull request
+          token: ${{ secrets.GITHUB_TOKEN }}  # GitHub automatically provides a token for authentication
