@@ -11,9 +11,11 @@ class TemperatureConverter:
     def fahrenheit_to_celsius(fahrenheit: float) -> float:
         return (fahrenheit - 32) * 5/9
 
+
     @staticmethod
     def celsius_to_kelvin(celsius: float) -> float:
         return celsius + 273.15
+
 
     @staticmethod
     def kelvin_to_celsius(kelvin: float) -> float:
