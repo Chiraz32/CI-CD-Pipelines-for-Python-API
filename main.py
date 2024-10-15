@@ -26,10 +26,6 @@ class TemperatureConverter:
         celsius = TemperatureConverter.fahrenheit_to_celsius(fahrenheit)
         return TemperatureConverter.celsius_to_kelvin(celsius)
 
-    @staticmethod
-    def kelvin_to_fahrenheit(kelvin: float) -> float:
-        celsius = TemperatureConverter.kelvin_to_celsius(kelvin)
-        return TemperatureConverter.celsius_to_fahrenheit(celsius)
 
 # Mapping paths to converter functions
 conversion_functions = {
@@ -38,7 +34,7 @@ conversion_functions = {
     "celsius-to-kelvin": TemperatureConverter.celsius_to_kelvin,
     "kelvin-to-celsius": TemperatureConverter.kelvin_to_celsius,
     "fahrenheit-to-kelvin": TemperatureConverter.fahrenheit_to_kelvin,
-    "kelvin-to-fahrenheit": TemperatureConverter.kelvin_to_fahrenheit
+   
 }
 
 # Dynamic endpoint creation
