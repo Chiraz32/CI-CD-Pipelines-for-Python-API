@@ -1,20 +1,16 @@
-name: Create Pull Request
+# File: .github/workflows/pull-request.yml
 
 on:
   push:
     branches:
-      - api_feature  # Trigger on pushes to api_feature
+    - api_feature
 
 jobs:
-  create_pr:
+  pull-request:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v4
-        with:
-          title: "Automated Pull Request from api_feature to master"
-          body: "This pull request was created automatically by a GitHub Action."
-          branch: api_feature  # The source branch
-          base: master         # The target branch
-          token: ${{ secrets.GITHUB_TOKEN }}  # GitHub token
+    - uses: actions/checkout@v3
+    - name: pull-request
+    uses: diillson/auto-pull-request@v1.0.1
+      with:
+        destination_branch: "master"
