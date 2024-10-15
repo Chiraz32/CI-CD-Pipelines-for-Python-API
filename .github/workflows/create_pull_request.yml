@@ -22,4 +22,4 @@ jobs:
           body: "This pull request was created automatically by a GitHub Action."
           branch: api_feature  # The source branch
           base: master         # The target branch
-          token: ${{ secrets.GITHUB_TOKEN }}  # GitHub token
+         
