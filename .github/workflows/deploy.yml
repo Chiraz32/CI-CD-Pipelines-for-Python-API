@@ -38,6 +38,6 @@ jobs:
 
       # Step 6: Deploy to Railway
       - name: Deploy
-        run: railway up
+        run: railway up --service deployer
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
