@@ -3,7 +3,7 @@ name: Create Pull Request
 on:
   push:
     branches:
-      - api_feature  # Trigger on pushes to api_feature branch
+      - api_feature  # Trigger on pushes to api_feature
 
 jobs:
   create_pr:
@@ -13,14 +13,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # Fetch all history for all branches
+          fetch-depth: 0  # Fetch all history to ensure the pull request can be created
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
           title: "Automated Pull Request from api_feature to master"
           body: "This pull request was created automatically by a GitHub Action."
-          branch: api_feature  # Correct source branch
-          base: master         # Target branch
-          draft: false         # Set to true if you want to create a draft pull request
-          token: ${{ secrets.GITHUB_TOKEN }}  # GitHub automatically provides a token for authentication
+          branch: api_feature  # The source branch
+          base: master         # The target branch
+          token: ${{ secrets.GITHUB_TOKEN }}  # GitHub token
