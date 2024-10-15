@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 5000
 
 # Set the command to run the application
-CMD ["python", "main.py"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "5000"]
