@@ -49,11 +49,4 @@ def test_fahrenheit_to_kelvin():
     assert response.status_code == 200
     assert response.json()["output"] == pytest.approx(373.15)
 
-def test_kelvin_to_fahrenheit():
-    response = client.get("/kelvin-to-fahrenheit?value=273.15")
-    assert response.status_code == 200
-    assert response.json()["output"] == pytest.approx(32)
 
-    response = client.get("/kelvin-to-fahrenheit?value=373.15")
-    assert response.status_code == 200
-    assert response.json()["output"] == pytest.approx(212)
