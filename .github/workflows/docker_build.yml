@@ -23,11 +23,15 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }} 
           
+      - name: Set unique tag
+        id: set_tag
+        run: |
+          echo "unique_tag=${GITHUB_SHA::7}" >> $GITHUB_ENV  # Set a short SHA tag as an environment variable
+
       - name: Tag Docker image
         run: |
-          unique_tag="${{ github.sha::7 }}"  # Use full SHA for a unique tag
-          docker tag temperature_converter ${{ secrets.DOCKER_USERNAME }}/temperature_converter:${unique_tag}
+          docker tag temperature_converter ${{ secrets.DOCKER_USERNAME }}/temperature_converter:${{ env.unique_tag }}
 
       - name: Push Docker image
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/temperature_converter:${unique_tag}
+          docker push ${{ secrets.DOCKER_USERNAME }}/temperature_converter:${{ env.unique_tag }}
