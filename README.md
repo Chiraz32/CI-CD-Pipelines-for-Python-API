@@ -114,7 +114,7 @@ To ensure the GitHub Actions workflows run smoothly, make sure the following rep
     uvicorn main:app --reload
     ```
 
-4. Access the API at `http://127.0.0.1:8000`.
+4. Access the API at `http://127.0.0.1:5000`.
 
 ### Using Docker
 
@@ -125,10 +125,10 @@ To ensure the GitHub Actions workflows run smoothly, make sure the following rep
 
 2. Run the Docker container:
     ```bash
-    docker run -d -p 8000:8000 devops_project
+    docker run -d -p 5000:5000 devops_project
     ```
 
-3. Access the API at `http://127.0.0.1:8000`.
+3. Access the API at `http://127.0.0.1:5000`.
 
 ## Conclusion
 
