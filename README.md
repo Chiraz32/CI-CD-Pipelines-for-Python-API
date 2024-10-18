@@ -1,4 +1,4 @@
-# CI/CD Pipelines for Python API - DevOps Project
+# CI/CD Pipelines for Python API 
 
 This project demonstrates a robust CI/CD pipeline implementation for a Python API. The API is built using FastAPI, containerized with Docker, and automated through GitHub Actions for Continuous Integration and Continuous Deployment (CI/CD). The project automates pull request creating, unit tests running, Docker image building, and deployment to the cloud via Railway.
 
