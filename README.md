@@ -53,7 +53,7 @@ The project employs multiple GitHub Actions workflows to automate key aspects of
 - **Workflow**: `run-test.yml`
 - **Description**: This workflow runs unit tests on each pull request using `pytest`. It ensures that changes submitted for review do not break existing functionality. The tests must pass successfully before the code is allowed to be merged into `master`.
 
-- ### Environment Variables
+### Environment Variables
 
 To securely handle authentication and deployment in CI/CD pipelines, the following environment variables need to be configured as GitHub Secrets:
 
@@ -63,7 +63,7 @@ To securely handle authentication and deployment in CI/CD pipelines, the followi
 
 These variables allow the automation scripts to build Docker images and deploy them to Railway securely.
 
-- ### Repository Configuration
+### Repository Configuration
 
 To ensure the GitHub Actions workflows run smoothly, make sure the following repository settings are configured:
 
