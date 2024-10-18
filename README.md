@@ -71,13 +71,13 @@ To ensure the GitHub Actions workflows run smoothly, make sure the following rep
    - Enable **Read and Write permissions** for GitHub Actions so they can modify code and create pull requests.
    - Enable the option **Allow GitHub Actions to create and approve pull requests** in repository settings.
 
-   ![Workflow Permissions](./assets/workflow_permissions.png)
+   ![Workflow Permissions](./workflow_permissions.jpeg)
 
 2. **Branch Protection Rules**: 
    - Configure branch protection rules on the `master` branch to require pull requests before merging.
    - Enable **Require status checks to pass before merging** to ensure that tests are successfully executed before merging new changes.
 
-   ![Branch Protection Rule](./assets/branch_protection_rule.png)
+   ![Branch Protection Rule](./branch_protection_rule.png)
 
 ## How CI/CD Works
 
